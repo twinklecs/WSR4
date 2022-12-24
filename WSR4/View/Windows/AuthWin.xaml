@@ -1,0 +1,61 @@
+﻿<Window x:Class="WSR4.View.Windows.AuthWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WSR4.View.Windows"
+        mc:Ignorable="d"
+        Title="Авторизация"
+        Height="300" Width="400"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Comic Sans MS">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Логин" VerticalAlignment="Center" Margin="20" 
+                   Padding="18 0 0 0" FontSize="18" FontWeight="Bold">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbLogin}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="tbLogin" Margin="20"/>
+
+        <TextBlock Grid.Row="1" Text="Пароль" VerticalAlignment="Center" Margin="20" 
+                   Padding="18 0 0 0" FontSize="18" FontWeight="Bold">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbPass}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox Grid.Row="1" x:Name="tbPass" Margin="20"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnEnter" Margin="20" Content="Войти" Click="btnEnter_Click"/>
+
+            <Button x:Name="btnReg" Grid.Column="1" Margin="20" Content="Регистрация" Click="btnReg_Click"/>
+        </Grid>
+    </Grid>
+</Window>
